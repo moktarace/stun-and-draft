@@ -1,0 +1,72 @@
+<nav class="page-control fixed-bottom bg-none">
+  <div class="container-fluid">
+    <div class="row justify-content-end">
+      <div class="col-5 text-center">
+        <button
+          type="button"
+          (click)="onCreatePage()"
+          class="btn btn-link link-primary text-decoration-none"
+        >
+          <i class="bi bi-plus"></i> New page
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid pages">
+    <app-page
+      *ngFor="let page of draft.pages; index as pageIndex"
+      [page]="page"
+      [height]="draft.height"
+      [width]="draft.width"
+      [margin]="draft.margin"
+      [grid]="draft.grid"
+      (click)="onSelectPage(pageIndex)"
+      [displayScale]="currentPage == pageIndex ? 0.07 : 0.05"
+    >
+    </app-page>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-sm-12 text-center">
+        <button
+        type="button"
+        [disabled]="!canMovePage(-1)"
+        (click)="onMovePage(-1)"
+        class="btn btn-link link-primary text-decoration-none"
+      >
+        <i class="bi bi-chevron-double-left"></i> Move backward this page
+      </button>
+      <button
+      type="button"
+      [disabled]="!canMovePage(1)"
+      (click)="onMovePage(1)"
+      class="btn btn-link link-primary text-decoration-none"
+    >
+       Move forward this page <i class="bi bi-chevron-double-right"></i>
+    </button>
+        <button
+          type="button"
+          (click)="onDuplicatePage()"
+          class="btn btn-link link-primary text-decoration-none"
+        >
+          <i class="bi bi-files"></i> Duplicate this page
+        </button>
+        <button
+          type="button"
+          disabled
+          (click)="onExportToPng()"
+          class="btn btn-link link-primary text-decoration-none"
+        >
+          <i class="bi bi-box-arrow-right"></i> Export this page as .png
+        </button>
+        <button
+          type="button"
+          (click)="onDeletePage()"
+          class="btn btn-link link-danger text-decoration-none"
+        >
+          <i class="bi bi-trash"></i> Delete this page
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

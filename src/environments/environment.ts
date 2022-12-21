@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false, 
-  url : ''
+  srcUrl : "https://worldmaker.app/data"
 };
 
 /*

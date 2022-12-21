@@ -41,6 +41,9 @@ yarn-error.log
 testem.log
 /typings
 
+# Pose files
+/src/assets/actuals/characters/**
+
 # System Files
 .DS_Store
 Thumbs.db

@@ -1,0 +1,13 @@
+<div [style]="style" [class]="{ disabled: disabled }" (click)="onClick()">
+  <div
+    class="element border-info border-2"
+    [class]="{ border: selected }"
+  ></div>
+  <div
+    class="m-auto text-center"
+    style="height: 50%; width: 50%; margin: 0; transform: translateY(50%)"
+  >
+    <p class="bubble-speech" [style]="fontStyle">{{ bubble.text }}</p>
+  </div>
+  <img class="element bubble" [src]="src" style="z-index: -1" />
+</div>

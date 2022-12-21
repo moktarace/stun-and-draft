@@ -1,0 +1,22 @@
+<nav class="nav nav-pills flex-column flex-sm-row mb-2">
+    <a *ngFor="let type of types" class="flex-sm-fill text-uppercase text-sm-center nav-link"
+        (click)="selectedType = type" [class]="{'active': selectedType == type}" aria-current="page"
+        href="#">{{type}}</a>
+</nav>
+
+<div style="
+            max-height: 50vh;
+            overflow: scroll;
+        ">
+    <div class="row row-cols-3 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let format of formats[selectedType]">
+            <div class="card"
+                [class]="{'border-info' : isSelected(format)}"
+                style="cursor: pointer;" (click)="onSelect(format.format)">
+                <div class="card-body">
+                    <img [src]="format.src" class="img-fluid" alt="format">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

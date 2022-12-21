@@ -1,17 +1,24 @@
-body {
-  background-color: lightblue;
+#worktable {
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
 }
 
-.panel {
+
+.page, .panel {
     position: absolute;
-    z-index: 0;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 100%;
     display: block;
     transform: translate(-50%,-50%);
     overflow: hidden;
+}
+
+.page {
+  top: 40%;
+  left: 50%;
+}
+
+.panel, .element {
+  cursor: pointer;
 }
 
 .element {
@@ -22,8 +29,36 @@ body {
   height: -webkit-fill-available;
 }
 
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
+.bubble-speech {
+  -webkit-text-stroke: white;
+}
+
+img.element {
+  object-fit: contain;
+}
+
+.disabled {
+  opacity: 25%;
+  cursor: not-allowed!important;
+}
+
+.rotate {
+  transform : rotate(90deg);
+}
+
+
+.page-control {
+
+  .pages {
+    display: inline-flex;
+    overflow-x: scroll;
+    .page {
+      margin-left: 5px;
+      position: relative;
+      cursor: pointer;
+    }
+  }
+
+  
+
 }

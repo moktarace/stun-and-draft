@@ -1,0 +1,90 @@
+<nav class="navbar fixed-bottom shadow-lg bg-body rounded-top rounded-5" *ngIf="selected">
+    <div class="container-fluid">
+        <div class="container p-0">
+            <div class="row justify-content-end">
+                <div class="col-8 text-center m-0 p-0">
+                    <button (click)="onDelete()" class="btn link-danger btn-link text-decoration-none"><i class="bi bi-trash"></i>
+                        Delete</button>
+                    <app-ui-edit [model]="selected" (edit)="onEdit()"></app-ui-edit>
+                    <button (click)="onUnselect()" class="btn btn-link text-decoration-none">
+                        Done
+                    </button>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-1">
+                <div class="col-6">
+                    <div class="btn-toolbar mb-1" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group m-auto btn-group-lg" role="group">
+                            <button type="button" (click)="flipX()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-triangle-half"></i></button>
+                            <button type="button" disabled (click)="onDuplicate()" class="btn btn-outline-secondary"><i
+                                        class="bi bi-files"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressRotatePlus)"
+                                (mousedown)="onPressDown(pressRotatePlus)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-clockwise"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressRotateMinus)"
+                                (mousedown)="onPressDown(pressRotateMinus)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-counterclockwise"></i></button>
+                        </div>
+                    </div>
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group m-auto btn-group-lg" role="group">
+                            <button type="button" (click)="move(0, 0, -1)" class="btn btn-outline-secondary"><i
+                                    class="bi bi-back"></i></button>
+                        <button type="button" (click)="move(0, 0, 1)" class="btn btn-outline-secondary"><i
+                            class="bi bi-front"></i></button>
+                            <a type="button" (touchstart)="onPressDown(pressZoomPlus)"
+                                (mousedown)="onPressDown(pressZoomPlus)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-zoom-in"></i></a>
+                            <button type="button" (touchstart)="onPressDown(pressZoomMinus)"
+                                (mousedown)="onPressDown(pressZoomMinus)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-zoom-out"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-center">
+                    <div class="btn-group-vertical" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group  btn-group-justified" role="group">
+                            <button type="button" (touchstart)="onPressDown(pressUpLeft)"
+                                (mousedown)="onPressDown(pressUpLeft)" (touchend)="onPressUp()" (mouseup)="onPressUp()"
+                                class="btn btn-outline-secondary" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-up-left"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressUp)" (mousedown)="onPressDown(pressUp)"
+                                (touchend)="onPressUp()" (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-up"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressUpRight)"
+                                (mousedown)="onPressDown(pressUpRight)" (touchend)="onPressUp()" (mouseup)="onPressUp()"
+                                class="btn btn-outline-secondary"><i class="bi bi-arrow-up-right"></i></button>
+                        </div>
+                        <div class="btn-group  btn-group-justified" role="group">
+                            <button type="button" (touchstart)="onPressDown(pressLeft)"
+                                (mousedown)="onPressDown(pressLeft)" (touchend)="onPressUp()" (mouseup)="onPressUp()"
+                                class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i></button>
+                            <button type="button" disabled="true" class="btn btn-outline-secondary"><i class="bi bi-dot"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressRight)"
+                                (mousedown)="onPressDown(pressRight)" (touchend)="onPressUp()" (mouseup)="onPressUp()"
+                                class="btn btn-outline-secondary"><i class="bi bi-arrow-right"></i></button>
+                        </div>
+                        <div class="btn-group  btn-group-justified" role="group">
+                            <button type="button" (touchstart)="onPressDown(pressDownLeft)"
+                                (mousedown)="onPressDown(pressDownLeft)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-down-left"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressDown)"
+                                (mousedown)="onPressDown(pressDown)" (touchend)="onPressUp()" (mouseup)="onPressUp()"
+                                class="btn btn-outline-secondary"><i class="bi bi-arrow-down"></i></button>
+                            <button type="button" (touchstart)="onPressDown(pressDownRight)"
+                                (mousedown)="onPressDown(pressDownRight)" (touchend)="onPressUp()"
+                                (mouseup)="onPressUp()" class="btn btn-outline-secondary"><i
+                                    class="bi bi-arrow-down-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

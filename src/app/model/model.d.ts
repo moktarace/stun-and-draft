@@ -1,8 +1,12 @@
 export interface Draft {
   name: string;
   description: string;
-  format: string;
-  page: Page;
+  width: number;
+  height: number;
+  margin: number;
+  grid: number;
+  version? : string;
+  pages: Page[];
 }
 
 export interface Page {
@@ -14,31 +18,40 @@ export interface Element {
   y: number;
   z: number;
   scale: number;
-  flip: boolean;
+  flipX: boolean;
+  flipY: boolean;
   rotation: number;
 }
 
 export interface Image extends Element {
-  src: string;
+  format: string;
+  type?: string;
 }
 
-export interface Bubble extends Element {
+export interface Bubble extends Image {
   text: string;
-  format: string;
 }
 
 export interface Character extends Element {
-  face: number;
-  pose: number;
-  angle: number;
-  hair: number;
+  face: string;
+  pose: string;
+  angle: string;
+  hair: string;
 }
 
 export interface Panel {
+  col: number;
+  row: number;
+  colSize: number;
+  rowSize: number;
   characters: Character[];
   bubble: Bubble[];
   background?: Image;
   effects: Image[];
+  sounds: Image[];
+  items: Image[];
+  signs: Image[];
+  comments: Comment[];
 }
 
 

@@ -1,0 +1,15 @@
+<div style="
+            max-height: 50vh;
+            overflow: scroll;
+        ">
+    <div class="row row-cols-3 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let format of formats">
+            <div class="card" style="cursor: pointer;"
+                [class]="{'border-info' : model && format.format === model.format}" (click)="onSelect(format.format)">
+                <div class="card-body">
+                    <img [src]="format.src" class="img-fluid" alt="format">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

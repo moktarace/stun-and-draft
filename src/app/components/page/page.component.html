@@ -1,7 +1,20 @@
-<div class="container">
-  <div class="grid text-center bg-white p-0 m-0">
-    <div class="col-12">
-      <app-panel class="p-0 m-0" [(panel)]="page.panels[0]" (panelChange)="onPanelChange()" [width]="1080" [height]="1080"></app-panel>
-    </div>
-</div>
+<div class="page bg-white shadow-lg" [style]="style">
+  <div *ngFor="let panel of page.panels; index as panelIndex">
+    <app-panel
+      [(panel)]="page.panels[panelIndex]"
+      [width]="getPanelWidth(page.panels[panelIndex])"
+      [height]="getPanelHeight(page.panels[panelIndex])"
+      [x]="getPanelX(page.panels[panelIndex])"
+      [y]="getPanelY(page.panels[panelIndex])"
+      [margin]="margin"
+      [displayScale]="displayScale"
+      [selected]="page.panels[panelIndex] == selectedPanel"
+      [disabled]="!!selectedPanel && page.panels[panelIndex] != selectedPanel"
+      [selectedElement]="selectedElement"
+      (select)="onSelectPanel($event)"
+      (selectElement)="onSelectElement($event)"
+      (panelChange)="onPanelChange()"
+    >
+    </app-panel>
+  </div>
 </div>

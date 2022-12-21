@@ -1,0 +1,69 @@
+<div
+  class="panel border bg-white border-dark"
+  [class]="{'disabled' : disabled}"
+  (click)="onSelect()"
+  [style]="style"
+>
+  <!--Background-->
+  <app-image
+    *ngIf="panel.background"
+    [image]="panel.background"
+    [type]="'bg'"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(panel.background)"
+    (select)="onSelectElement(panel.background)"
+  >
+  </app-image>
+  <!--Character-->
+  <app-character
+    *ngFor="let char of panel.characters"
+    [character]="char"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(char)"
+    (select)="onSelectElement(char)"
+  ></app-character>
+  <!--Item-->
+  <app-image
+    *ngFor="let item of panel.items"
+    [image]="item"
+    [type]="'item'"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(item)"
+    (select)="onSelectElement(item)"
+  ></app-image>
+  <!--Sign-->
+  <app-image
+    *ngFor="let sign of panel.signs"
+    [image]="sign"
+    [type]="'sign'"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(sign)"
+    (select)="onSelectElement(sign)"
+  ></app-image>
+  <!--Effect-->
+  <app-image
+    *ngFor="let effect of panel.effects"
+    [image]="effect"
+    [type]="'effect'"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(effect)"
+    (select)="onSelectElement(effect)"
+  ></app-image>
+  <!--Bubble-->
+  <app-bubble
+    *ngFor="let bubble of panel.bubble"
+    [bubble]="bubble"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(bubble)"
+    (select)="onSelectElement(bubble)"
+  ></app-bubble>
+  <!--Sounds-->
+  <app-image
+    *ngFor="let sound of panel.sounds"
+    [image]="sound"
+    [type]="'sound'"
+    [displayScale]="displayScale"
+    [selected]="isElementSelected(sound)"
+    (select)="onSelectElement(sound)"
+  ></app-image>
+</div>

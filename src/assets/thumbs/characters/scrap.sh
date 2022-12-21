@@ -9,7 +9,7 @@ cd ../
 
 mkdir face
 cd face
-url=https://worldmaker.app/data/thumbs/characters/face/[01-59].png
+url=https://worldmaker.app/data/thumbs/characters/face/[01-58].png
 curl -k ${url} -O
 cd ../
 
@@ -21,7 +21,7 @@ cd ../
 
 mkdir hair
 cd hair
-url=https://worldmaker.app/data/thumbs/characters/hair/[001-006].png
+url=https://worldmaker.app/data/thumbs/characters/hair/[001-007].png
 curl -k ${url} -O
 cd ../
 
