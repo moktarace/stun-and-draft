@@ -1,0 +1,43 @@
+<!--<canvas id="canvas" class="border p-0 m-0 border-dark shadow-sm bg-white" width="1080" height="1080"
+    style="user-select: none; -webkit-tap-highlight-color: transparent;"></canvas>-->
+
+<!--<ngx-canvas [width]="200" [height]="200" [options]="options" 
+(drawComplete)="drawComplete($event)"></ngx-canvas>
+-->
+<div class="panel border bg-white border-dark" style="width : 200px; height : 200px">
+    <!--Bubble-->
+    <app-bubble *ngFor="let bubble of panel.bubble" [bubble]="bubble" (bubbleChange)="onElementChange()"
+        [selected]="isSelected(bubble)" (click)="onClick(bubble)"></app-bubble>
+</div>
+<!-- Menu -->
+<nav class="navbar fixed-bottom bg-light" *ngIf="!selected">
+    <div class="container-fluid">
+        <div class="btn-group" role="group">
+            <button type="button" (click)="createBubble()" class="btn btn-secondary"><i class="bi bi-chat"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+<!--- edit -->
+<nav class="navbar fixed-bottom bg-light" *ngIf="selected">
+    <div class="container-fluid">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group">
+                <button type="button" (click)="zoom(selected, 5)" class="btn btn-secondary"><i
+                        class="bi bi-zoom-in"></i></button>
+                <button type="button" (click)="zoom(selected, -5)" class="btn btn-secondary"><i
+                        class="bi bi-zoom-out"></i></button>
+                <button type="button" (click)="flip(selected)" class="btn btn-secondary"><i
+                        class="bi bi-triangle-half"></i></button>
+                <button type="button" (click)="rotate(selected, 5)" class="btn btn-secondary"><i
+                        class="bi bi-arrow-clockwise"></i></button>
+                <button type="button" (click)="rotate(selected, -5)" class="btn btn-secondary"><i
+                        class="bi bi-arrow-counterclockwise"></i></button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" (click)="delete(selected)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                <button type="button" (click)="unselect()" class="btn btn-primary"><i class="bi bi-check2"></i></button>
+            </div>
+        </div>
+    </div>
+</nav>
